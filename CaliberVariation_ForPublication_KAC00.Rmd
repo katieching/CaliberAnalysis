@@ -9,9 +9,6 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Differences between this and the previous version:
-
-n/a
 
 # Introduction
 
@@ -19,11 +16,13 @@ Starting notes: This is an R Markdown document. For more details on using R Mark
 
 Note that the `echo = FALSE` parameter can be added to the code chunk (instead of echo = TRUE) to prevent printing of the R code that generated the output you see (e.g. the plot).
 
+If you intend to use this code, be sure to replace the file paths with the correct file paths for your own data.
 
 
-# RbDotPlotBranchRules_KAC01:
 
-This file takes the RB catalog multipoint measurement data and makes various dot plots from it for analysis. It includes analyses for comparing branching results/rules to Paheli Desai-Chowdry's paper (Desai-Chowdry et al., 2022).
+# RB Branch Rules
+
+This section takes the RB catalog multipoint measurement data and makes various dot plots from it for analysis. It includes analyses for comparing branching results/rules to Paheli Desai-Chowdry's paper (Desai-Chowdry et al., 2022).
 
 ## Get started
 
@@ -45,7 +44,7 @@ Note that you might have to change the direction of the slashes on different com
 
 ```{r load, echo=TRUE}
  
-measurements = read.csv("G:/My Drive/DesktopItems/Measurements/RbCatalog/MultiPointMeasurement/KAC_RbCatalog_MultiMeasure1Dpf.csv")
+measurements = read.csv("G:/MyAverageCalibers.csv")
 
 NumberOfAxons = length(measurements$PrimaryDiameter)
 
@@ -363,7 +362,7 @@ Note that you might have to change the direction of the slashes for different op
 
 ```{r pairedload, echo=TRUE}
  
-measurements = read.csv("G:/My Drive/DesktopItems/Measurements/Fluctuation/CaliberFluctuationCorrelation_LogitudinalStats.csv")
+measurements = read.csv("G:/MyLongitudinalStats.csv")
 
 ```
 
@@ -539,7 +538,7 @@ Note that you might have to change the direction of the slashes for different op
 
 ```{r divload, echo=TRUE}
  
-measurements = read.csv("G:/My Drive/DesktopItems/Measurements/Division/Div_DynamOnOff-1st3_norm-AllData-ForR.csv")
+measurements = read.csv("G:/MyDivisionCalibers.csv")
 
 ```
 
@@ -595,9 +594,9 @@ Note that, for simplicity, I'm loading the "on" and "off" data into separate dat
 
 ```{r pairedload2, echo=TRUE}
  
-df_paired = read.csv("G:/My Drive/DesktopItems/Measurements/Division/Div_Dynam_Paired.csv")
-df_on = read.csv("G:/My Drive/DesktopItems/Measurements/Division/Div_Dynam_Paired-On.csv")
-df_off = read.csv("G:/My Drive/DesktopItems/Measurements/Division/Div_Dynam_Paired-Off.csv")
+df_paired = read.csv("G:/DivisionDynamicsCalibers_Paired.csv")
+df_on = read.csv("G:/DivisionDynamicsCalibers_Paired-On.csv")
+df_off = read.csv("G:/DivisionDynamicsCalibers_Paired-Off.csv")
 
 ```
 
@@ -716,9 +715,9 @@ Note that you might have to change the direction of the slashes for different op
 
 ```{r roundload, echo=TRUE}
  
-df_round = read.csv("G:/My Drive/DesktopItems/Measurements/Division/Div_AxonOnRoundedCell_AllDataForR.csv")
+df_round = read.csv("G:/Calibers_AxonOnRoundedCell.csv")
 
-df_round_stats = read.csv("G:/My Drive/DesktopItems/Measurements/Division/Div_AxononRoundedCell_Stats.csv")
+df_round_stats = read.csv("G:/Stats_AxonOnRoundedCell.csv")
 
 ```
 
@@ -904,7 +903,7 @@ Standard deviation for each cell was calculated in Excel using STDEV.S for calib
 ```{r dynam_SD, echo=TRUE}
 
 #The standard deviation for each location on each cell was calculated in Excel using STDEV.S. Load these data here.
-df_on_SD <- read.csv("G:/My Drive/DesktopItems/Measurements/Division/Div_Dynam_Paired-On_SD.csv")
+df_on_SD <- read.csv("G:/Division_SD.csv")
 
 #Make the data frame usable for plotting.
 n = length(df_on_SD$id)
